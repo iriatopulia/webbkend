@@ -1,0 +1,57 @@
+<!-- views/mainPage.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <!-- Link the external stylesheet -->
+    <link rel="stylesheet" href="../public/styles.css">
+</head>
+
+<!-- ... rest of the EJS file ... -->
+
+
+<body>
+<header>
+    <!-- Navbar with a bonus feature (dropdown menu) -->
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <!-- Bonus feature: Language dropdown menu -->
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Language</a>
+                <div class="dropdown-content">
+                    <a href="/update-language?lang=en">English</a>
+                    <a href="/update-language?lang=fr">Français</a>
+                    <!-- Add more language options as needed -->
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <!-- Your main content goes here -->
+    <h1>Welcome to the Main Page</h1>
+    <!-- Display items or other relevant content -->
+    <div id="item-carousel" class="carousel">
+        <!-- Render items dynamically using EJS -->
+        <% items.forEach(item => { %>
+            <div class="carousel-item">
+                <img src="<%= item.imageUrl %>" alt="<%= item.name %>">
+                <h3><%= item.name %></h3>
+                <p><%= item.description %></p>
+            </div>
+        <% }); %>
+    </div>
+</main>
+
+<!-- Include any additional scripts or footer content -->
+</body>
+
+</html>
